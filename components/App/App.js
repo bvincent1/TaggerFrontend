@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import './App.css';
 
 import SearchBar from '../SearchBar/SearchBar';
 import GifRow from '../GifRow/GifRow';
@@ -93,6 +92,39 @@ class App extends Component {
         <body>
           {gifRows}
         </body>
+        <style jsx>{`
+          .App {
+            text-align: center;
+          }
+
+          .App-header {
+            background-color: #222;
+            height: 150px;
+            padding: 20px;
+          }
+
+          .App-title {
+            font-size: 1.5em;
+          }
+
+          .App-intro {
+            font-size: large;
+          }
+
+          @keyframes App-logo-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+          }
+
+          .gifEntry {
+            position:relative;
+            padding-bottom:54%;
+          }
+
+          .gifEntry img {
+            width: 300px;
+          }
+        `}</style>
       </div>
     );
   }

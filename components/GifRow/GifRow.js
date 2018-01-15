@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './GifRow.css';
 
 class GifRow extends Component {
   render() {
@@ -12,7 +11,20 @@ class GifRow extends Component {
     });
 
     return (
-      <div className="row">{imgList}</div>
+      <div className="row">
+        {imgList}
+        <style jsx>{`
+          .gifEntry {
+            position:relative;
+            padding-bottom:54%;
+          }
+
+          .gifEntry img {
+            width: 300px;
+            height: 300px;
+          }
+        `}</style>
+      </div>
     )
   }
 }
