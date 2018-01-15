@@ -12,6 +12,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "export": "next export"
+    "export": "next export",
+    "deploy": "aws s3 sync out/ s3://tagger.hacknslash.io"
   }
 }
