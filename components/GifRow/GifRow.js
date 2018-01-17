@@ -13,7 +13,7 @@ class GifRow extends Component {
     return (
       <div className="row">
         {imgList}
-        <style jsx>{`
+        <style global jsx>{`
           .gifEntry {
             position:relative;
             padding-bottom:54%;
