@@ -18,7 +18,8 @@ class App extends Component {
       gifs: [],
       isLoading: true,
       value: '#rock',
-      tagCursorArray: []
+      tagCursorArray: [],
+      cursor: 0
     };
   }
 
@@ -51,7 +52,8 @@ class App extends Component {
       if (data) {
         this.setState({
           isLoading: false,
-          gifs: data.gfycatArray
+          gifs: data.gfycatArray,
+          cursor: this.state.cursor
         });
       }
     });
@@ -61,26 +63,27 @@ class App extends Component {
     this.setState({
       value: e.target.value,
       isLoading: this.state.isLoading,
-      gifs: this.state.gifs
+      gifs: this.state.gifs,
+      cursor: this.state.cursor
     })
   }
 
   onClickHandler(e) {
-    console.log(e);
     this.apiFetch( data => {
       if (data) {
         this.setState({
           isLoading: false,
           value: this.state.value,
           gifs: data.gfycatArray,
-          tagCursorArray: data.tagCursorArray
+          tagCursorArray: data.tagCursorArray,
+          cursor: this.state.cursor
         });
       }
     });
   }
 
   render() {
-    const gifRows = _.chunk(this.state.gifs, 3).map(row => {return <GifRow gifArray={row}/>});
+    const gifRows = _.chunk(this.state.gifs.slice(this.state.cursor, this.state.cursor + 9), 3).map(row => {return <GifRow gifArray={row}/>});
     return (
       <div className="App container">
         <header className="App-header">
